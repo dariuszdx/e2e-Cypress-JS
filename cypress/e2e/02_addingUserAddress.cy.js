@@ -17,22 +17,22 @@ describe("E2E-Add user address", { testIsolation: false }, () => {
   //   cy.getPageTitle().should("exist").and("contain", "You are signed out");
   // });
 
-  context("Navigate to the address book", () => {
+  context("Navigate to the account page", () => {
     it("Should successfully go to my account page", () => {
       menu.listMenu.click({ force: true });
       menu.myAccountButtton.click({ force: true });
-      // cy.getElementWithClassBase().should("exist").and("contain", "My Account");
-      // cy.location("pathname").should("eq", "/customer/account/");
+      cy.getPageTitle().should("exist").and("contain", "My Account");
+      cy.location("pathname").should("eq", "/customer/account/");
     });
 
-  //   it("Should successfully go to the address book tab", () => {
-  //     address.addressBookTab.click();
-  //     cy.getPageTitle()
-  //       .should("exist")
-  //       .and("contain", "Create New Customer Account");
-  //     cy.location("pathname").should("eq", "/customer/account/create/");
-  //   });
-  // });
+    it("Should successfully go to the address book tab", () => {
+      cy.clickLinkByText("Address Book");
+      cy.getPageTitle()
+        .should("exist")
+        .and("contain", "Add New Address");
+      cy.location("pathname").should("eq", "/customer/address/new/");
+    // });
+  });
 
   // context("Complete address fields", () => {
   //   it("Should complete fields in the contact information section", () => {
