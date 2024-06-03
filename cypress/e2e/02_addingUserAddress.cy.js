@@ -3,7 +3,6 @@
 import "../support/resetCacheAndSetLoginPage";
 import "../support/commands";
 import menu from "../page_object/menu";
-import registration from "../page_object/registration";
 import "../support/logOut";
 import "../support/logIn";
 
@@ -11,6 +10,9 @@ describe("E2E-Add user address", { testIsolation: false }, () => {
   before(() => {
     cy.resetCacheAndSetLoginPage();
     cy.loginIn();
+    cy.fixture("addressData.json").then((address) => {
+      addressData = address;
+    })
   });
   // after(() => {
   //   cy.logOut();
