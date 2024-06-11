@@ -5,6 +5,7 @@ import "../support/commands";
 import menu from "../page_object/menu";
 import "../support/logOut";
 import "../support/logIn";
+import  "../fixtures/addressData.json"
 
 describe("E2E-Add user address", { testIsolation: false }, () => {
   before(() => {
