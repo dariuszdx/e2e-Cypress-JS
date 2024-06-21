@@ -1,0 +1,84 @@
+[
+  {
+    "description": "Correct registration",
+    "user": {
+      "firstname": "Janusz",
+      "lastname": "Kowalski",
+      "password": "Password1!",
+      "confirmPassword": "Password1!",
+      "email": ""
+    },
+    "expectedSuccess": true
+  },
+  {
+    "description": "Missing firstname",
+    "user": {
+      "firstname": "",
+      "lastname": "Nowak",
+      "password": "Password2!",
+      "confirmPassword": "Password2!",
+      "email": ""
+    },
+    "expectedSuccess": false
+  },
+  {
+    "description": "Invalid email format",
+    "user": {
+      "firstname": "Anna",
+      "lastname": "Nowak",
+      "password": "Password2!",
+      "confirmPassword": "Password2!",
+      "email": "invalid-email"
+    },
+    "expectedSuccess": false
+  },
+  {
+    "description": "Password too short",
+    "user": {
+      "firstname": "Adam",
+      "lastname": "Zieliński",
+      "password": "Pwd1!",
+      "confirmPassword": "Pwd1!",
+      "email": ""
+    },
+    "expectedSuccess": false
+  },
+  {
+    "description": "Missing lastname",
+    "user": {
+      "firstname": "Tomasz",
+      "lastname": " ",
+      "password": "Password1!",
+      "confirmPassword": "Password1!",
+      "email": ""
+    },
+    "expectedSuccess": false
+  },
+  {
+    "description": "Email already in use",
+    "user": {
+      "firstname": "Piotr",
+      "lastname": "Kamiński",
+      "password": "Password1!",
+      "confirmPassword": "Password1!",
+      "email": "janek14@o2.pl"
+    },
+    "expectedSuccess": false
+  },
+  {
+    "description": "Diffrent passwords",
+    "user": {
+      "firstname": "Anna",
+      "lastname": "Nowak123",
+      "password": "Password1!",
+      "confirmPassword": "Password2!",
+      "email": ""
+    },
+    "expectedSuccess": false
+  },
+  {
+    "description": "Empty user object",
+    "user": {},
+    "expectedSuccess": false
+  }
+]
