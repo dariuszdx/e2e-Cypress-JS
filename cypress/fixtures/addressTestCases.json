@@ -1,0 +1,13 @@
+{
+  "description": "Correct address",
+  "address": {
+    "company": "ZOO",
+    "phoneNumber": "123456789",
+    "street": "Naruszewicza",
+    "city": "Warszawa",
+    "zipCode": "00-100",
+    "country": "Poland",
+    "state": "mazowieckie"
+  },
+  "expectedSuccess": true
+}
