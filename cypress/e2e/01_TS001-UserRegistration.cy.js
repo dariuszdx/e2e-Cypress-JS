@@ -12,40 +12,32 @@ function generateRandomEmail() {
 
 let registrationSuccessful = false;
 
-describe("User registration test scenarios", { testIsolation: false }, () => {
+describe("User registration test scenario", { testIsolation: false }, () => {
   testCases.forEach((testCase) => {
     context(`Test case: ${testCase.description}`, () => {
       before(() => {
         registrationSuccessful = false;
         cy.resetCacheAndSetLoginPage();
         cy.clickLinkByText("Create an Account");
-        cy.getPageTitle()
-          .should("exist")
-          .and("contain", "Create New Customer Account");
+        cy.getPageTitle().should("exist").and("contain", "Create New Customer Account");
         cy.location("pathname").should("eq", "/customer/account/create/");
       });
 
       after(() => {
         if (registrationSuccessful) {
-          cy.getSuccessNotification(
-            "Thank you for registering with Main Website Store."
-          ).should("exist");
+          cy.getSuccessNotification("Thank you for registering with Main Website Store.").should("exist");
           cy.logOut();
-          cy.getPageTitle()
-            .should("exist")
-            .and("contain", "You are signed out");
+          cy.getPageTitle().should("exist").and("contain", "You are signed out");
           cy.wait(2000);
         }
       });
 
       it("Should complete registration fields", () => {
-        if (testCase.user.firstname) {
-          registration.firstname.type(testCase.user.firstname);
-          registration.lastname.type(testCase.user.lastname);
-          registration.email.type(testCase.user.email || generateRandomEmail());
-          registration.password.type(testCase.user.password);
-          registration.confirmPassword.type(testCase.user.confirmPassword);
-        }
+        registration.firstname.type(testCase.user.firstname);
+        registration.lastname.type(testCase.user.lastname);
+        registration.email.type(testCase.user.email || generateRandomEmail());
+        registration.password.type(testCase.user.password);
+        registration.confirmPassword.type(testCase.user.confirmPassword);
       });
 
       it("Should submit the form and check the result", () => {

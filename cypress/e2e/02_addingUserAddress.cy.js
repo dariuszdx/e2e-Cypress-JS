@@ -17,7 +17,7 @@ describe("E2E-Add user address", { testIsolation: false }, () => {
     context(`Test case "${testCase.description}"`, () => {
       before(() => {
         cy.resetCacheAndSetLoginPage();
-        cy.login(); // Changed from cy.loginIn()
+        cy.login();
         cy.fixture("addressData.json").then((data) => {
           addressData = data;
         });
@@ -26,7 +26,7 @@ describe("E2E-Add user address", { testIsolation: false }, () => {
       context("Navigate to the account page", () => {
         it("Should successfully go to my account page", () => {
           menu.listMenu.click({ force: true });
-          menu.myAccountButton.click({ force: true }); // Corrected typo
+          menu.myAccountButton.click({ force: true });
           cy.getPageTitle().should("exist").and("contain", "My Account");
           cy.location("pathname").should("eq", "/customer/account/");
         });

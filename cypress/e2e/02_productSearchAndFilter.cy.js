@@ -4,7 +4,6 @@ import "../support/logOut";
 import "../support/logIn";
 import search from "../page_object/search";
 
-
 describe("Product Search and Filter", { testIsolation: false }, () => {
   let testData;
 

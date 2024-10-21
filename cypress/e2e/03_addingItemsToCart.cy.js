@@ -4,7 +4,6 @@ import "../support/logOut";
 import "../support/logIn";
 import search from "../page_object/search";
 
-
 describe("Adding item to cart", { testIsolation: false }, () => {
   let testData;
 
@@ -53,8 +52,8 @@ describe("Adding item to cart", { testIsolation: false }, () => {
       cy.clickSpanByText("View and Edit Cart");
       cy.getPageTitle().should("exist").and("contain", "Shopping Cart");
       cy.location("pathname").should("eq", "/checkout/cart/");
-      cy.getQtyCartField().should("have.value", "1")
-      cy.getItemCartInfo().should("contain","Lono Yoga Short");
+      cy.getQtyCartField().should("have.value", "1");
+      cy.getItemCartInfo().should("contain", "Lono Yoga Short");
     });
     it("Delete item from cart", () => {
       cy.deleteItemFromCart();
